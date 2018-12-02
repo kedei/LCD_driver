@@ -1,0 +1,14 @@
+sudo dpkg -i -B xserver-xorg-input-evdev_2.10.5-1_armhf.deb
+sudo apt-get install xserver-xorg-input-evdev
+
+sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
+
+
+
+sudo cp -rf ./usr/5inch_99-calibration.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+
+sudo  cp ./boot/5inch_config.txt   /boot/config.txt
+
+
+sudo apt-mark hold raspberrypi-bootloader
+sudo reboot
