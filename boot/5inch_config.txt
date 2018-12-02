@@ -55,7 +55,7 @@ dtparam=spi=on
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
 
-dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,speed=10000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
+dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,speed=2000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
 
 
 hdmi_group=2
