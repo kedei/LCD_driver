@@ -1,0 +1,2 @@
+sudo  cp ./boot/config_hdmi.txt   /boot/config.txt
+sudo reboot

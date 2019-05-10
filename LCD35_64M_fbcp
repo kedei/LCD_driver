@@ -1,0 +1,42 @@
+sudo apt-get install xserver-xorg-input-evdev
+
+sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
+
+sudo apt-get install cmake -y
+
+sudo git clone https://github.com/tasanakorn/rpi-fbcp
+
+cd rpi-fbcp/
+sudo mkdir build
+cd build/
+sudo cmake ..
+sudo make
+sudo install fbcp /usr/local/bin/fbcp
+
+cd ../..
+sudo cp -f ./etc/rc.local /etc/rc.local
+
+if test "$1" = "0" -o "$#" = "0";then
+sudo cp -rf ./usr/35_spi_128M_99-calibration-0.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+sudo cp -f ./boot/35_spi_64M_0.dtbo /boot/overlays/kedei.dtbo
+sudo  cp ./boot/35_config_128M_fbcp.txt   /boot/config.txt
+echo "LCD displayer 0"
+elif test "$1" = "90";then
+sudo cp -rf ./usr/35_spi_128M_99-calibration-90.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+sudo cp -f ./boot/35_spi_64M_90.dtbo /boot/overlays/kedei.dtbo
+sudo  cp ./boot/35_config_128M_fbcp_90.txt   /boot/config.txt
+echo "LCD displayer 90"
+elif test "$1" = "180";then
+sudo cp -rf ./usr/35_spi_128M_99-calibration-180.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+sudo cp -f ./boot/35_spi_64M_180.dtbo /boot/overlays/kedei.dtbo
+sudo  cp ./boot/35_config_128M_fbcp_180.txt   /boot/config.txt
+echo "LCD displayer 180"
+elif test "$1" = "270"; then
+sudo cp -rf ./usr/35_spi_128M_99-calibration-270.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+sudo cp -f ./boot/35_spi_64M_270.dtbo /boot/overlays/kedei.dtbo
+sudo  cp ./boot/35_config_128M_fbcp270.txt   /boot/config.txt
+echo "LCD displayer 270"
+fi
+
+sudo apt-mark hold raspberrypi-bootloader
+sudo reboot
