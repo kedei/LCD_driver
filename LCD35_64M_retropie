@@ -1,0 +1,18 @@
+echo "KeDei"
+echo "KeDei"
+echo "KeDei"
+echo "KeDei"
+sudo apt-get install cmake -y
+sudo git clone https://github.com/tasanakorn/rpi-fbcp
+cd rpi-fbcp/
+sudo mkdir build
+cd build/
+sudo cmake ..
+sudo make
+sudo install fbcp /usr/local/bin/fbcp
+cd ../..
+sudo cp -f ./etc/rc_re.local /etc/rc.local
+sudo cp -f ./boot/35_spi_128M_0.dtbo /boot/overlays/kedei.dtbo
+sudo  cp ./boot/config_retropei.txt   /boot/config.txt
+echo "OKOKOK"
+sudo reboot
