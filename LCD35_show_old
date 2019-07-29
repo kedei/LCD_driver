@@ -1,0 +1,26 @@
+#sudo dpkg -i -B xserver-xorg-input-evdev_2.10.5-1_armhf.deb
+sudo apt-get install xserver-xorg-input-evdev
+
+sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
+
+sudo  cp ./boot/35_config_128M.txt   /boot/config.txt
+
+if test "$1" = "0" -o "$#" = "0";then
+sudo cp -rf ./usr/35_spi_128M_99-calibration-0.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+sudo cp ./boot/35_spi_128M_0_old.dtbo /boot/overlays/kedei.dtbo
+echo "LCD displayer 0"
+elif test "$1" = "90";then
+sudo cp -rf ./usr/35_spi_128M_99-calibration-90.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+sudo cp ./boot/35_spi_128M_90_old.dtbo /boot/overlays/kedei.dtbo
+echo "LCD displayer 90"
+elif test "$1" = "180";then
+sudo cp -rf ./usr/35_spi_128M_99-calibration-180.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+sudo cp ./boot/35_spi_128M_180_old.dtbo /boot/overlays/kedei.dtbo
+echo "LCD displayer 180"
+elif test "$1" = "270"; then
+sudo cp -rf ./usr/35_spi_128M_99-calibration-270.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
+sudo cp ./boot/35_spi_128M_270_old.dtbo /boot/overlays/kedei.dtbo
+echo "LCD displayer 270"
+fi
+sudo apt-mark hold raspberrypi-bootloader
+sudo reboot
