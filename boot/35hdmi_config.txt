@@ -45,7 +45,7 @@ hdmi_drive=2
 # Uncomment some or all of these to enable the optional hardware interfaces
 #dtparam=i2c_arm=on
 #dtparam=i2s=on
-dtparam=spi=on
+#dtparam=spi=on
 
 # Uncomment this to enable the lirc-rpi module
 #dtoverlay=lirc-rpi
@@ -55,11 +55,14 @@ dtparam=spi=on
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
 
-dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,speed=2000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
+#dtoverlay=ads7846,cs=1,penirq=25,penirq_pull=2,speed=2000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=200,xmax=3900,ymin=200,ymax=3900
+
+dtoverlay=ads7846,cs=0,penirq=25,penirq_pull=2,speed=10000,keep_vref_on=0,swapxy=0,pmax=255,xohms=150,xmin=199,xmax=3999,ymin=199,ymax=3999
 
 
+hdmi_force_hotplug=1
+hdmi_drive=2
 hdmi_group=2
-hdmi_mode=1
 hdmi_mode=87
 hdmi_cvt 480 320 60 6 0 0 0
-hdmi_force_hotplug=1
+
