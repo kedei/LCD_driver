@@ -3,7 +3,11 @@ sudo apt-get install xserver-xorg-input-evdev
 
 sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
 
+sudo cp -rf ./usr/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+
 sudo  cp ./boot/35_config_128M.txt   /boot/config.txt
+
+sudo cp ./boot/inittab /etc/
 
 if test "$1" = "0" -o "$#" = "0";then
 sudo cp -rf ./usr/35_spi_128M_99-calibration-0.conf /usr/share/X11/xorg.conf.d/99-calibration.conf
