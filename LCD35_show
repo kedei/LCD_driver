@@ -7,6 +7,8 @@ sudo cp -rf ./usr/99-fbturbo.conf  /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 
 sudo  cp ./boot/35_config_128M.txt   /boot/config.txt
 
+sudo  cp ./boot/cmdline.txt   /boot/cmdline.txt
+
 sudo cp ./boot/inittab /etc/
 
 if test "$1" = "0" -o "$#" = "0";then
