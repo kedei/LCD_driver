@@ -1,4 +1,14 @@
 #sudo dpkg -i -B xserver-xorg-input-evdev_2.10.5-1_armhf.deb
+
+sudo  cp   /boot/config.txt  ./boot/config_hdmi.txt 
+
+if [ -f /etc/X11/xorg.conf.d/40-libinput.conf ]; then
+sudo rm -rf /etc/X11/xorg.conf.d/40-libinput.conf
+fi
+if [ ! -d /etc/X11/xorg.conf.d ]; then
+sudo mkdir -p /etc/X11/xorg.conf.d
+fi
+
 sudo apt-get install xserver-xorg-input-evdev
 
 sudo cp -rf /usr/share/X11/xorg.conf.d/10-evdev.conf /usr/share/X11/xorg.conf.d/45-evdev.conf
@@ -30,4 +40,10 @@ sudo cp ./boot/rpi_35_0.dtbo /boot/overlays/kedei.dtbo
 echo "LCD displayer 270"
 fi
 sudo apt-mark hold raspberrypi-bootloader
+
+
+sudo sync
+sudo sync
+sleep 1
+
 sudo reboot

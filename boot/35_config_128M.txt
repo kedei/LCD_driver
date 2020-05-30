@@ -54,5 +54,5 @@ dtparam=spi=on
 
 # Enable audio (loads snd_bcm2835)
 dtparam=audio=on
-display_default_lcd=1
+#display_default_lcd=1
 dtoverlay=kedei
